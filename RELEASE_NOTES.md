@@ -17,3 +17,7 @@
 - Signer: local non-production evaluation certificate; SHA-256 fingerprint `3967eee3ed539cdc48e717645c007000ac211c5e19e06b2a9b492b7d5539b902`. This is not a Play Store/production signing key.
 - APK SHA-256: `16dd5d0c2af3864e227d0a275a950e25227a66115e43fce10c3cf16811d4bd4f`.
 - Installation on a physical Android device or emulator was not available in this environment; signature and manifest checks do not establish install/runtime success.
+
+## GitHub asset delivery
+
+The `v1.1.0` GitHub release and tag are published, but attaching release assets failed because `uploads.github.com` returned EOF. Until GitHub asset upload is available, the committed branch copies are available here: [APK](https://raw.githubusercontent.com/hhajtalebi/CryptoAITraderMobile/arena/b11353a6-cryptoaitradermobile/releases/v1.1.0/CryptoAITraderMobile-v1.1.0.apk), [Source ZIP](https://raw.githubusercontent.com/hhajtalebi/CryptoAITraderMobile/arena/b11353a6-cryptoaitradermobile/releases/v1.1.0/CryptoAITraderMobile-v1.1.0-Source.zip), [Release ZIP](https://raw.githubusercontent.com/hhajtalebi/CryptoAITraderMobile/arena/b11353a6-cryptoaitradermobile/releases/v1.1.0/CryptoAITraderMobile-v1.1.0-Release.zip).

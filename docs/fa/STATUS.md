@@ -17,4 +17,4 @@
 - تاریخچه در localStorage هر دستگاه است؛ پاک‌کردن دادهٔ مرورگر/برنامه آن را حذف می‌کند و فضای ذخیره محدود است.
 - APK با کلید ارزیابی محلی امضا می‌شود، نه کلید production/Play Store. نصب یا اجرای دستگاهی/Emulator در محیط توسعه انجام نشده است.
 - در این نسخه `npm run build:ui` و 25 تست Node پاس شده‌اند؛ APK با SDK ساخته، امضای v1/v2/v3 و manifest بررسی شده است. Flutter/Dart، zipalign، adb و Emulator در محیط حاضر نیستند؛ نصب/اجرای گوشی تأیید نشده است.
-- GitHub release asset upload ممکن است بسته به دسترسی endpoint `uploads.github.com` محدود باشد؛ وجود صفحهٔ release به‌تنهایی اثبات پیوست asset نیست.
+- Release/tag نسخهٔ `v1.1.0` در GitHub ساخته شد؛ آپلود assetها در endpoint `uploads.github.com` با EOF شکست خورد و صفحهٔ Release فعلاً پیوست APK/ZIP ندارد. فایل‌های APK و ZIP به شاخهٔ هدف push شده‌اند؛ تا موفقیت پیوست، Release از نظر asset ناقص است.
