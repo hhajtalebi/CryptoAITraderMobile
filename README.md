@@ -1,12 +1,12 @@
 # CryptoAITrader
 
-نسخهٔ **1.0.0** — سندباکس پژوهشی فارسی/انگلیسی برای مرور فید عمومی بازار LBank، تحلیل کندل‌های اسپات، فهرست قراردادهای فیوچرز، واچ‌لیست، بک‌تست و شبیه‌سازی محلی. این محصول سفارش واقعی ارسال نمی‌کند.
+نسخهٔ **1.0.1** — سندباکس پژوهشی فارسی/انگلیسی برای مرور فید عمومی بازار LBank، تحلیل کندل‌های اسپات، فهرست قراردادهای فیوچرز، واچ‌لیست، بک‌تست و شبیه‌سازی محلی. این محصول سفارش واقعی ارسال نمی‌کند.
 
 ## دانلود
 
 - **صفحهٔ HTML سندباکس:** `sandbox.html` — فایل را در مرورگر باز کنید؛ برای فید آنلاین، روش پیشنهادی اجرای سرور در پایین را انجام دهید.
-- **APK اندروید:** `releases/v1.0.0/CryptoAITrader-v1.0.0.apk` — Universal Java/WebView APK، حداقل Android 7 / API 24؛ امضای sandbox آزمایشی دارد.
-- **ZIP سورس:** `releases/v1.0.0/CryptoAITrader-v1.0.0-source.zip`.
+- **APK اندروید:** `releases/v1.0.1/CryptoAITrader-v1.0.1.apk` — Universal Java/WebView APK، حداقل Android 7 / API 24؛ امضای sandbox آزمایشی دارد.
+- **ZIP سورس:** `releases/v1.0.1/CryptoAITrader-v1.0.1-source.zip`.
 - **یادداشت نسخه:** `RELEASE_NOTES.md`.
 
 > نصب مستقیم APK: فایل را در Android باز کنید و در صورت نیاز اجازهٔ نصب از فایل‌منیجر را فعال کنید. نصب روی دستگاه فیزیکی در این محیط انجام نشده است. اثرانگشت SHA-256 داخل پوشهٔ نسخه است.
@@ -31,7 +31,7 @@ npm test
 python3 tools/build_release.py
 ```
 
-ساخت APK در این sandbox با OpenJDK 21، AAPT، ECJ، D8 و apksigner آماده‌شدهٔ محلی آزموده شد؛ لازم نیست Flutter SDK یا Android Studio روی دستگاه توسعه‌دهنده نصب باشد تا APK توزیع‌شده نصب شود. برای توسعهٔ Flutter prototype موجود در `lib/` به Flutter 3.35.7/Dart 3.9.2 و Android SDK نیاز است؛ این prototype نسخهٔ اصلی APK تحویلی 1.0.0 نیست.
+ساخت APK در این sandbox با OpenJDK 21، AAPT، ECJ، D8 و apksigner آماده‌شدهٔ محلی آزموده شد؛ لازم نیست Flutter SDK یا Android Studio روی دستگاه توسعه‌دهنده نصب باشد تا APK توزیع‌شده نصب شود. برای توسعهٔ Flutter prototype موجود در `lib/` به Flutter 3.35.7/Dart 3.9.2 و Android SDK نیاز است؛ این prototype APK منتشرشده از WebView shell ساخته می‌شود.
 
 ## مرزبندی داده و ایمنی
 
