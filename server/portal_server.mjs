@@ -15,7 +15,7 @@ const server = http.createServer(async (req,res)=>{
         res.writeHead(400, {'content-type':'application/json'}); res.end(JSON.stringify({error:'blocked_url'})); return;
       }
       try {
-        const upstream = await fetch(target, {headers:{accept:'application/json','user-agent':'CryptoAITrader/1.0.1 sandbox'}, signal:AbortSignal.timeout(15000)});
+        const upstream = await fetch(target, {headers:{accept:'application/json','user-agent':'CryptoAITrader/1.0.2 sandbox'}, signal:AbortSignal.timeout(15000)});
         const body = await upstream.arrayBuffer();
         res.writeHead(upstream.status, {'content-type':upstream.headers.get('content-type')||'application/json','cache-control':'no-store','access-control-allow-origin':'*'}); res.end(Buffer.from(body)); return;
       } catch (error) {

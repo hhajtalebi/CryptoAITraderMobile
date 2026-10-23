@@ -1,9 +1,9 @@
 {
   "name": "crypto-ai-trader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "type": "module",
-  "description": "CryptoAITrader v1.0.1 - LBank Multi-Timeframe Futures & Spot Technical Analysis & Signal Application",
+  "description": "CryptoAITrader v1.0.2 - LBank Multi-Timeframe Futures & Spot Technical Analysis & Signal Application",
   "scripts": {
     "build:ui": "node tools/check_ui.mjs",
     "build:apk": "python3 tools/build_release.py",

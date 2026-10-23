@@ -40,9 +40,9 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     unsigned = TMP / f'CryptoAITrader-v{version}-unsigned.apk'
     signed = OUT / f'CryptoAITrader-v{version}.apk'
-    run([AAPT, 'package', '-f', '-M', ROOT / 'android-native/AndroidManifest.xml', '-S', ROOT / 'android-native/res', '-A', ROOT / 'assets', '-I', ANDROID_JAR, '--min-sdk-version', '24', '--target-sdk-version', '34', '--version-code', str(VERSION_CODE), '--version-name', version, '-F', unsigned])
+    run([AAPT, 'package', '-f', '-M', ROOT / 'android-native/AndroidManifest.xml', '-S', ROOT / 'android-native/res', '-A', ROOT / 'assets', '-I', ANDROID_JAR, '--min-sdk-version', '21', '--target-sdk-version', '34', '--version-code', str(VERSION_CODE), '--version-name', version, '-F', unsigned])
     run([JAVA, '-jar', ECJ, '-source', '8', '-target', '8', '-bootclasspath', ANDROID_JAR, '-d', TMP / 'classes', ROOT / 'android-native/src/app/cryptoaitrader/MainActivity.java'])
-    run([JAVA, '-cp', D8, 'com.android.tools.r8.D8', '--min-api', '24', '--lib', ANDROID_JAR, '--output', TMP / 'dex', TMP / 'classes/app/cryptoaitrader/MainActivity.class'])
+    run([JAVA, '-cp', D8, 'com.android.tools.r8.D8', '--min-api', '21', '--lib', ANDROID_JAR, '--output', TMP / 'dex', TMP / 'classes/app/cryptoaitrader/MainActivity.class'])
     with zipfile.ZipFile(unsigned, 'a', compression=zipfile.ZIP_DEFLATED) as z:
         z.write(TMP / 'dex/classes.dex', 'classes.dex')
     keystore = KEYSTORE
@@ -52,7 +52,7 @@ def main() -> None:
     run([JAVA, '-jar', APKSIGNER, 'sign', '--v1-signing-enabled', 'true', '--v2-signing-enabled', 'true', '--v3-signing-enabled', 'true', '--ks', keystore, '--ks-pass', 'pass:changeit', '--key-pass', 'pass:changeit', '--out', signed, unsigned])
     verification = run([JAVA, '-jar', APKSIGNER, 'verify', '--verbose', '--print-certs', signed])
     badging = run([AAPT, 'dump', 'badging', signed])
-    if "package: name='app.cryptoaitrader'" not in badging or f"versionName='{version}'" not in badging or f"versionCode='{VERSION_CODE}'" not in badging or "sdkVersion:'24'" not in badging or "targetSdkVersion:'34'" not in badging:
+    if "package: name='app.cryptoaitrader'" not in badging or f"versionName='{version}'" not in badging or f"versionCode='{VERSION_CODE}'" not in badging or "sdkVersion:'21'" not in badging or "targetSdkVersion:'34'" not in badging:
         raise SystemExit('APK manifest validation failed')
     if 'Verifies' not in verification:
         raise SystemExit('APK signature verification failed')

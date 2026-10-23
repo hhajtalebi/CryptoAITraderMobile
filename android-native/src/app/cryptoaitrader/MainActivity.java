@@ -102,7 +102,7 @@ public final class MainActivity extends Activity {
                 connection.setReadTimeout(12000);
                 connection.setInstanceFollowRedirects(false);
                 connection.setRequestProperty("Accept", "application/json");
-                connection.setRequestProperty("User-Agent", "CryptoAITrader/1.0.1 Android");
+                connection.setRequestProperty("User-Agent", "CryptoAITrader/1.0.2 Android");
                 int code = connection.getResponseCode();
                 if (code < 200 || code >= 300) return "{\"__error\":\"http_" + code + "\"}";
                 InputStream in = connection.getInputStream();
