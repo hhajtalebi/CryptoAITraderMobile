@@ -1,0 +1,83 @@
+{
+  "testedAt": "2026-10-02T15:25:47.056727Z",
+  "Toobit": {
+    "tickers": 992,
+    "btc": {
+      "exchange": "Toobit",
+      "symbol": "BTC/USDT",
+      "price": 85352.0,
+      "change": 1.4200000000000002,
+      "volume": 883005899.5353279,
+      "time": 1790954744926
+    },
+    "candles": 500,
+    "firstCandle": 1789156800000,
+    "lastCandle": 1790953200000,
+    "wsFrame": {
+      "symbol": "BTCUSDT",
+      "symbolName": "BTCUSDT",
+      "topic": "realtimes",
+      "params": {
+        "realtimeInterval": "24h",
+        "binary": "false"
+      },
+      "data": [
+        {
+          "t": 1790954748296,
+          "s": "BTCUSDT",
+          "sn": "BTCUSDT",
+          "c": "85354",
+          "h": "87219.99",
+          "l": "83831.99",
+          "o": "84155.75",
+          "v": "10294.47682",
+          "qv": "883018711.1707279",
+          "m": "0.0142",
+          "e": 301,
+          "c24h": "85354",
+          "h24h": "87219.99",
+          "l24h": "83831.99",
+          "o24h": "84155.75",
+          "v24h": "10294.47682",
+          "qv24h": "883018711.1707279",
+          "m24h": "0.0142"
+        }
+      ],
+      "f": true,
+      "sendTime": 1790954748383
+    }
+  },
+  "LBank": {
+    "tickers": 1008,
+    "btc": {
+      "exchange": "LBank",
+      "symbol": "BTC/USDT",
+      "price": 85351.89,
+      "change": 1.42,
+      "volume": 538440219.34,
+      "time": 1790954748774
+    },
+    "candles": 499,
+    "firstCandle": 1789153200000,
+    "lastCandle": 1790949600000,
+    "wsFrame": {
+      "SERVER": "V2",
+      "tick": {
+        "to_cny": 6.7,
+        "high": 87197.39,
+        "vol": 6278.693,
+        "low": 83831.21,
+        "change": 1.43,
+        "usd": 85360.22,
+        "to_usd": 1.0,
+        "dir": "sell",
+        "turnover": 538445421.95,
+        "latest": 85360.22,
+        "cny": 572340.27
+      },
+      "type": "tick",
+      "pair": "btc_usdt",
+      "TS": "2026-10-02T23:25:52.287"
+    }
+  }
+}

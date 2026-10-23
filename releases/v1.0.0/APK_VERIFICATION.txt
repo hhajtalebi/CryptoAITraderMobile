@@ -1,0 +1,42 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=CryptoAITrader Sandbox, OU=Evaluation, O=CryptoAITrader, L=Frankfurt, ST=Hesse, C=DE
+Signer #1 certificate SHA-256 digest: 3967eee3ed539cdc48e717645c007000ac211c5e19e06b2a9b492b7d5539b902
+Signer #1 certificate SHA-1 digest: c472cc9b8c497887ac66915fc967e3c93e71700b
+Signer #1 certificate MD5 digest: 19129a7fa225b9416c3aad0dfea0754a
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 0b1a0e903eee77c979e7554a78a946b6a76056bc61d7e456a235da63b5fbdef4
+Signer #1 public key SHA-1 digest: 9076dedfec8fc48ec43654e701817682b71d1c84
+Signer #1 public key MD5 digest: 3fe012de249f2b42e1490d471927347a
+
+
+package: name='app.cryptoaitrader' versionCode='10000' versionName='1.0.0' platformBuildVersionName='14' platformBuildVersionCode='34' compileSdkVersion='34' compileSdkVersionCodename='14'
+sdkVersion:'24'
+targetSdkVersion:'35'
+uses-permission: name='android.permission.INTERNET'
+application-label:'CryptoAITrader'
+application-icon-160:'res/mipmap-mdpi/ic_launcher.png'
+application-icon-240:'res/mipmap-hdpi/ic_launcher.png'
+application-icon-320:'res/mipmap-xhdpi/ic_launcher.png'
+application-icon-480:'res/mipmap-xxhdpi/ic_launcher.png'
+application-icon-640:'res/mipmap-xxxhdpi/ic_launcher.png'
+application-icon-65535:'res/mipmap-xxxhdpi/ic_launcher.png'
+application: label='CryptoAITrader' icon='res/mipmap-mdpi/ic_launcher.png'
+launchable-activity: name='app.cryptoaitrader.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+  uses-feature: name='android.hardware.screen.portrait'
+  uses-implied-feature: name='android.hardware.screen.portrait' reason='one or more activities have specified a portrait orientation'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160' '240' '320' '480' '640' '65535'

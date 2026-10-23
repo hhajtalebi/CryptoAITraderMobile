@@ -1,0 +1,25 @@
+# JavaScript dependencies and generated output
+node_modules/
+coverage/
+build/
+dist/
+
+# Local editor and operating-system files
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Flutter/Dart generated state
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+
+# Android generated state
+android/.gradle/
+android/local.properties
+android/**/build/
+*.jks
+*.keystore
