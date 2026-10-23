@@ -1,10 +1,10 @@
 # امنیت و حریم خصوصی
 
-- داده‌های عمومی فقط با HTTPS از دو میزبان `api.lbkex.com` و `lbkperp.lbank.com` دریافت می‌شوند.
-- Android JavaScript bridge فقط GET، host/path allowlist، بدون redirect، timeout و سقف پاسخ دارد.
-- برنامه مجوز/مسیر API برای order placement، transfer یا withdraw ندارد.
-- API key صرافی درخواست یا ذخیره نمی‌شود.
-- Paper Trading و واچ‌لیست روی همان device/browser هستند؛ حذف برنامه یا پاک‌کردن site data ممکن است آن‌ها را حذف کند.
-- خروجی JSON تاریخچه ممکن است اطلاعات تحلیل شخصی داشته باشد؛ قبل از اشتراک‌گذاری بازبینی کنید.
-- APK با کلید sandbox آزمایشی امضا شده، نه کلید تولید/Play Store. Hash را از فایل همراه همان release کنترل کنید.
-- نصب روی دستگاه روت‌شده، proxy interception و امنیت WebView در دستگاه واقعی در این نسخه audit نشده است.
+- Android bridge فقط HTTPS GET و میزبان/مسیر دقیق endpointهای عمومی مجاز Spot/Futures را می‌پذیرد؛ port غیر استاندارد، redirect، URL دارای credential، سفارش خصوصی و host ناشناخته رد می‌شود.
+- پروکسی Node فقط GET، HTTPS، دو hostname موردنیاز و allowlist مسیرهای read-only عمومی را می‌پذیرد؛ محدودیت پاسخ 2 MiB و timeout دارد.
+- preview server فقط `download.html`، `sandbox.html`، `assets/` و `releases/` را ارائه می‌کند؛ `.git`، dotfiles، package manifest و ابزارهای build عمومی نیستند.
+- CORS wildcard حذف شده؛ CSP و security headers برای صفحهٔ preview فعال‌اند.
+- هیچ API key صرافی درخواست یا ذخیره نمی‌شود. سفارش واقعی/withdrawal وجود ندارد.
+- localStorage فقط روی همان origin/device است و رمزگذاری‌شده تلقی نمی‌شود. گزارش export ممکن است سوابق شخصی داشته باشد؛ پیش از اشتراک‌گذاری آن را بررسی کنید.
+- signing keystore در Git/ZIP قرار نمی‌گیرد. APK با کلید ارزیابی محلی test-signed است و برای production/Play Store مجاز نیست.
+- audit دستگاه واقعی، Play Protect، hardening WebView روی OEMها و penetration test انجام نشده؛ ادعای تأیید امنیت production وجود ندارد.

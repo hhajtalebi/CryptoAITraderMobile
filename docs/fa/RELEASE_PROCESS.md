@@ -1,14 +1,10 @@
-# نسخه‌بندی و انتشار
+# فرایند انتشار
 
-نسخه‌ها با Semantic Versioning ثبت می‌شوند: `MAJOR.MINOR.PATCH`. نسخهٔ فعلی 1.0.0 در `VERSION`, `package.json`, `RELEASE_NOTES.md` و Android manifest یکسان است. Android `versionCode=10000` دارد.
-
-مراحل build:
-
-1. به‌روزرسانی کد و مستندات/تست.
-2. `npm test`.
-3. بررسی HTML/JS syntax.
-4. `python3 tools/build_release.py`.
-5. تأیید APKSig، manifest، اندازه و SHA-256.
-6. ساخت ZIP سورس بدون `.git`, node_modules, cache, build و secrets.
-
-APK فعلی با sandbox key توسعه‌ای امضا می‌شود. برای انتشار فروشگاهی باید مالک پروژه کلید امضای خودش را نگه دارد و build pipeline را با امضای محرمانه جایگزین کند. کلید release واقعی را در مخزن یا فایل سورس نگذارید.
+1. روی branch تأییدشده کار کنید؛ وضعیت Git، remote tag و GitHub Releases را بررسی کنید. تغییرات محلی را حفظ کنید.
+2. `VERSION`, `package.json`, changelog، منابع UI، min/target SDK، versionCode و مستندات را هماهنگ کنید.
+3. `npm ci`, `npm run build:ui`, `npm test` را اجرا کنید. تست Flutter فقط در صورت وجود SDK اجرا شود.
+4. `python3 tools/build_release.py`؛ سپس امضا، manifest، versionCode، checksum، اندازه، APK ZIP CRC را اعتبارسنجی کنید.
+5. `python3 tools/package_release.py`؛ سورس ZIP باید شامل README/API/tests/docs/build scripts و ignore files و فاقد `.git`, node_modules, keystore, APK/idsig باشد.
+6. commit و push به branch session؛ push را تأیید کنید، سپس tag منحصربه‌فرد را به همان commit نهایی وصل کنید.
+7. GitHub Release عمومی بسازید و واقعی‌بودن assets APK/Source ZIP را بعد از upload با `gh release view` بررسی کنید. اگر `uploads.github.com` در محیط قابل دسترسی نبود، فقط لینک فایل committed را گزارش کنید و نگویید asset پیوست شده است.
+8. در یادداشت انتشار وضعیت APK debug/release/test-sign، محدودیت نصب دستگاه و نتایج دقیق تست‌ها را بنویسید. APK ارزیابی با کلید production یا Play Store اشتباه نشود.

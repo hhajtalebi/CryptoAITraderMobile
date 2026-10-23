@@ -1,7 +1,10 @@
-# ذخیره‌سازی محلی
+# ذخیره‌سازی و ماندگاری
 
-نسخهٔ HTML/Android v1.0.0 از `localStorage` برای واچ‌لیست و دفتر Paper Trading استفاده می‌کند. داده‌ها بین نشست‌ها روی همان مرورگر/دستگاه باقی می‌مانند؛ حذف برنامه یا پاک‌کردن storage ممکن است آن‌ها را حذف کند. این نسخه SQLite/رمزگذاری دیتابیس برای این دفتر HTML ندارد.
+نسخهٔ WebView 1.1.0 از localStorage همان origin استفاده می‌کند:
+- `cait.watch`: واچ‌لیست.
+- `cait.paper`: equity، پوزیشن‌های paper، رویدادهای paper.
+- `cait.history`: حداکثر 200 تحلیل، 500 رویداد و 500 لاگ.
 
-تاریخچهٔ تحلیل و log نسخه فعلی بیشتر در حافظهٔ session نگهداری می‌شوند و با reload تضمین بازیابی ندارند؛ خروجی JSON قبل از خروج از نشست ذخیره شود. کلید API یا secret در storage ذخیره نمی‌شود.
+آرایه‌ها در زمان بارگذاری sanity-check و محدود می‌شوند. خطا/سقف quota به‌صورت صریح ثبت می‌شود؛ تضمین storage در حالت private browsing یا پاک‌کردن داده وجود ندارد. هیچ اطلاعاتی به cloud یا دیتابیس server ارسال نمی‌شود.
 
-ZIP همچنین Flutter prototype قبلی را دارد که ماژول `AppDatabase` SQLite جداگانه دارد؛ آن دیتابیس بخشی از APK v1.0.0 وب‌شل نیست.
+Flutter prototype موجود در `lib/core/data/database.dart` دارای SQLite مستقل است اما جزو APK Java/WebView نیست.

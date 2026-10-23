@@ -1,6 +1,8 @@
 # JavaScript dependencies and generated output
 node_modules/
 coverage/
+__pycache__/
+*.py[cod]
 build/
 dist/
 
@@ -23,3 +25,12 @@ android/local.properties
 android/**/build/
 *.jks
 *.keystore
+*.idsig
+*.p12
+*.pfx
+*.pem
+*.key
+.env
+.env.*
+keystore.properties
+secret.properties

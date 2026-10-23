@@ -1,13 +1,14 @@
 # CryptoAITrader
 
-نسخهٔ **1.0.2** — سندباکس پژوهشی فارسی/انگلیسی برای مرور فید عمومی بازار LBank، تحلیل کندل‌های اسپات، فهرست قراردادهای فیوچرز، واچ‌لیست، بک‌تست و شبیه‌سازی محلی. این محصول سفارش واقعی ارسال نمی‌کند.
+نسخهٔ **1.1.0** — سندباکس پژوهشی فارسی/انگلیسی برای مرور فید عمومی بازار LBank، تحلیل کندل‌های اسپات، فهرست قراردادهای فیوچرز، واچ‌لیست، بک‌تست و شبیه‌سازی محلی. این محصول سفارش واقعی ارسال نمی‌کند.
 
 ## دانلود
 
 - **صفحهٔ HTML سندباکس:** `sandbox.html` — فایل را در مرورگر باز کنید؛ برای فید آنلاین، روش پیشنهادی اجرای سرور در پایین را انجام دهید.
-- **APK اندروید:** `releases/v1.0.2/CryptoAITrader-v1.0.2.apk` — Universal Java/WebView APK، حداقل Android 7 / API 21؛ امضای sandbox آزمایشی دارد.
-- **ZIP سورس:** `releases/v1.0.2/CryptoAITrader-v1.0.2-source.zip`.
+- **APK اندروید:** `releases/v1.1.0/CryptoAITraderMobile-v1.1.0.apk` — Universal Java/WebView APK؛ نسخهٔ release با کلید ارزیابی پروژه امضا می‌شود، حداقل Android 5.0 / API 21؛ امضای sandbox آزمایشی دارد.
+- **ZIP سورس:** `releases/v1.1.0/CryptoAITraderMobile-v1.1.0-Source.zip`.
 - **یادداشت نسخه:** `RELEASE_NOTES.md`.
+- امضای APK نسخهٔ 1.1.0 با گواهی 1.0.2 یکسان بررسی شد؛ Android از نظر امضا مجاز به به‌روزرسانی است (نصب واقعی آزمایش نشده). APK نسخهٔ قبل در `releases/v1.0.2/` باقی می‌ماند.
 
 > نصب مستقیم APK: فایل را در Android باز کنید و در صورت نیاز اجازهٔ نصب از فایل‌منیجر را فعال کنید. نصب روی دستگاه فیزیکی در این محیط انجام نشده است. اثرانگشت SHA-256 داخل پوشهٔ نسخه است.
 
@@ -16,7 +17,9 @@
 نیازمندی: Node.js 20 یا جدیدتر (در این checkout با Node 22 آزموده شد).
 
 ```bash
-npm install
+npm ci
+npm run build:ui
+npm test
 npm start
 ```
 
@@ -28,7 +31,8 @@ npm start
 
 ```bash
 npm test
-python3 tools/build_release.py
+CRYPTOAI_STORE_PASSWORD='<local secret>' CRYPTOAI_KEY_PASSWORD='<local secret>' python3 tools/build_release.py
+python3 tools/package_release.py
 ```
 
 ساخت APK در این sandbox با OpenJDK 21، AAPT، ECJ، D8 و apksigner آماده‌شدهٔ محلی آزموده شد؛ لازم نیست Flutter SDK یا Android Studio روی دستگاه توسعه‌دهنده نصب باشد تا APK توزیع‌شده نصب شود. برای توسعهٔ Flutter prototype موجود در `lib/` به Flutter 3.35.7/Dart 3.9.2 و Android SDK نیاز است؛ این prototype APK منتشرشده از WebView shell ساخته می‌شود.

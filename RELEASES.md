@@ -1,7 +1,6 @@
-# نسخه‌های تحویل‌شده
+# Release index
 
-| نسخه | تاریخ | وضعیت | APK | سورس |
-|---|---|---|---|---|
-| 1.0.0 | 2026-10-23 | ساخته و اعتبارسنجی‌شده؛ نصب دستگاه واقعی انجام نشده | `releases/v1.0.0/CryptoAITrader-v1.0.0.apk` | `releases/v1.0.0/CryptoAITrader-v1.0.0-source.zip` |
-| 1.0.1 | 2026-10-23 | نسخهٔ اصلاحی نصب؛ امضای سازگار و versionCode بالاتر، اعتبارسنجی ایستا؛ نصب گوشی واقعی در دسترس نیست | `releases/v1.0.1/CryptoAITrader-v1.0.1.apk` | `releases/v1.0.1/CryptoAITrader-v1.0.1-source.zip` |
-| 1.0.2 | 2026-10-23 | حداقل Android 5.0/API 21؛ امضای سازگار و versionCode بالاتر؛ اعتبارسنجی ایستا | `releases/v1.0.2/CryptoAITrader-v1.0.2.apk` | `releases/v1.0.2/CryptoAITrader-v1.0.2-source.zip` |
+| Version | Local artifact status | APK | Source |
+|---|---|---|---|
+| 1.1.0 | Built; APK signature/manifest and ZIP integrity verified. Physical installation/runtime not tested in this environment. | `releases/v1.1.0/CryptoAITraderMobile-v1.1.0.apk` | `releases/v1.1.0/CryptoAITraderMobile-v1.1.0-Source.zip` |
+| 1.0.2 | Previous GitHub release; installation remains unconfirmed on user device | `releases/v1.0.2/CryptoAITrader-v1.0.2.apk` | `releases/v1.0.2/CryptoAITrader-v1.0.2-source.zip` |

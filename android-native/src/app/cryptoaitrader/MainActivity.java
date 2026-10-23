@@ -90,10 +90,11 @@ public final class MainActivity extends Activity {
                 URI uri = new URI(address);
                 String scheme = uri.getScheme();
                 String host = uri.getHost();
-                if (!"https".equalsIgnoreCase(scheme) || host == null ||
+                if (address == null || address.length() > 4096 || !"https".equalsIgnoreCase(scheme) || host == null ||
                     !(host.equalsIgnoreCase("api.lbkex.com") || host.equalsIgnoreCase("lbkperp.lbank.com")) ||
-                    uri.getUserInfo() != null || uri.getFragment() != null ||
-                    (uri.getPath() == null || !uri.getPath().startsWith("/v2/") && !uri.getPath().startsWith("/cfd/openApi/v1/pub/"))) {
+                    uri.getUserInfo() != null || uri.getFragment() != null || (uri.getRawQuery() != null && uri.getRawQuery().length() > 2048) || (uri.getPort() != -1 && uri.getPort() != 443) ||
+                    !((host.equalsIgnoreCase("api.lbkex.com") && (uri.getPath().equals("/v2/currencyPairs.do") || uri.getPath().equals("/v2/ticker/24hr.do") || uri.getPath().equals("/v2/kline.do"))) ||
+                      (host.equalsIgnoreCase("lbkperp.lbank.com") && (uri.getPath().equals("/cfd/openApi/v1/pub/instrument") || uri.getPath().equals("/cfd/openApi/v1/pub/marketData"))))) {
                     return "{\"__error\":\"blocked_url\"}";
                 }
                 connection = (HttpURLConnection) new URL(address).openConnection();
@@ -102,7 +103,7 @@ public final class MainActivity extends Activity {
                 connection.setReadTimeout(12000);
                 connection.setInstanceFollowRedirects(false);
                 connection.setRequestProperty("Accept", "application/json");
-                connection.setRequestProperty("User-Agent", "CryptoAITrader/1.0.2 Android");
+                connection.setRequestProperty("User-Agent", "CryptoAITrader/1.1.0 Android");
                 int code = connection.getResponseCode();
                 if (code < 200 || code >= 300) return "{\"__error\":\"http_" + code + "\"}";
                 InputStream in = connection.getInputStream();

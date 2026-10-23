@@ -1,22 +1,26 @@
-# راهنمای توسعه‌دهنده
+# توسعه و ساخت
 
-## فایل‌های اصلی
+## Web sandbox
+نیازمند Node.js 20+؛ وابستگی‌ها از `package-lock.json` نصب شوند:
+```bash
+npm ci
+npm run build:ui
+npm test
+npm start
+```
+سرور روی `0.0.0.0:4173` گوش می‌دهد؛ `/` صفحه دانلود و `/sandbox.html` محیط تعاملی است.
 
-- `assets/web/index.html`: UI و منطق مرورگر (single-file bundle).
-- `server/portal_server.mjs`: static server توسعه و proxy allowlist.
-- `android-native/src/app/cryptoaitrader/MainActivity.java`: shell و bridge HTTP امن Android.
-- `android-native/AndroidManifest.xml` و `android-native/res`: مجوزها/آیکون/ظاهر native.
-- `tests/market_engine.test.mjs`: تست‌های engine.
-- `tools/build_release.py`: build، sign، validate و stage APK.
+## Android APK
+در این checkout از `/opt/android-sdk` (AAPT، `android.jar`، ECJ، D8 و apksigner) استفاده می‌شود:
+```bash
+CRYPTOAI_KEYSTORE=/path/outside/repo/release.jks \\
+CRYPTOAI_KEY_ALIAS=release \\
+CRYPTOAI_STORE_PASSWORD='<local secret>' \\
+CRYPTOAI_KEY_PASSWORD='<local secret>' \\
+python3 tools/build_release.py
+python3 tools/package_release.py
+```
+نسخه از `VERSION` خوانده می‌شود؛ versionCode برابر major*10000+minor*100+patch است. خروجی در `releases/vX.Y.Z/` است. امضای sandbox از keystore محلی بیرون مخزن استفاده می‌کند؛ کلید خصوصی را وارد مخزن یا ZIP نکنید. اجرای سازنده با Android SDK/keystore متفاوت به‌صورت دقیق مستند شود.
 
-## تغییر UI
-
-ویرایش HTML/CSS/JS انجام دهید؛ سپس syntax را با استخراج script و `node --check` بررسی کنید. برای اضافه‌کردن دادهٔ صرافی، endpoint باید در مستند رسمی تأیید و به allowlist هم سرور preview و هم Java bridge افزوده شود. هرگز endpoint تجاری order در bridge عمومی اضافه نکنید.
-
-## افزودن تایم‌فریم
-
-Map `TF` و mapping رسمی LBank Spot candle type را با unit test به‌روز کنید. حواستان باشد `time` در query epoch seconds است و زمان خروجی کندل ثانیه است؛ داخل برنامه به ms تبدیل می‌شود. اندازه/حد endpoint و محدودیت نرخ رعایت شود.
-
-## APK
-
-اسکریپت build به ابزارهای موجود در مسیر `/opt/android-sdk/tools` و `/opt/android-sdk/jdk` در محیط تولید نیاز دارد. build script فایل امضای آزمایشی موقتی می‌سازد؛ آن را برای انتشار عمومی استفاده نکنید.
+## مرزبندی سورس
+`assets/web/index.html` برنامهٔ WebView تحویلی است. Flutter prototype در `lib/` و `test/` نگه داشته شده اما build toolchain این APK را تولید نمی‌کند. برای تست Flutter، Flutter/Dart/Android SDK نصب‌شده لازم است.

@@ -1,23 +1,20 @@
-# وضعیت تحویل v1.0.0
+# وضعیت پروژه CryptoAITraderMobile v1.1.0
 
-## انجام‌شده
+## پیاده‌سازی‌شده در این نسخه
+- برنامهٔ Android WebView با UI فارسی/انگلیسی، Spot و Futures جدا، بازارها، نمودار، اسکن قراردادهای futures و دفتر Paper محلی.
+- یک هستهٔ تصمیم فنی برای تحلیل بسته‌شدهٔ Spot و بک‌تست rolling.
+- بک‌تست 15m/1h/4h/1D بر اساس دادهٔ Spot؛ 4H فقط برای تایم‌فریم‌های پایین‌تر و با محدودیت زمانی اعمال می‌شود.
+- stop-first برای ابهام OHLC، اصلاح fill برای gap، هزینهٔ round-trip و تقسیم زمانی train/out-of-sample.
+- history تحلیل، Paper events و logs روی localStorage؛ خروجی JSON کامل و CSV/JSONL/TXT تب فعال.
+- Proxy عمومی LBank با GET/HTTPS/host/path allowlist، سقف پاسخ و محدودسازی فایل‌های قابل سرو.
+- هیچ سفارش واقعی، API خصوصی، برداشت یا AI آموزش‌دیده وجود ندارد.
 
-- فایل HTML واقعی sandbox، UI RTL/English و گرافیک اختصاصی پیوست کاربر.
-- APK Android ARM64-independent Java/WebView shell با min SDK 24، target 35، Java bridge محدود.
-- فید public LBank Spot tickers/pairs/kline و Contract Futures instrument/marketData/orderbook/time طبق مستندات رسمی بررسی‌شده.
-- جدا بودن Spot/Futures در UI و داده.
-- جستجو، sort، واچ‌لیست، اسکن قراردادها، نمودار، اندیکاتورها، سیگنال Spot پژوهشی، Paper ledger local، history/log export و backtest نمونه.
-- 10 تست واحد Node سبز و بررسی امضای APK/manifest.
-- README و مستندات فارسی/API/version changelog.
-
-## تکمیل‌نشده/محدودیت
-
-- endpoint public futures candles تأیید نشد؛ تحلیل کندلی futures و اسکن سیگنال futures در دسترس نیست.
-- سفارش واقعی، برداشت، اتصال private key، funding/liq simulation و background monitor نیست.
-- Paper Trading آموزشی است و full execution simulator نیست.
-- AI inference داخلی یا ادعای ML وجود ندارد.
-- بک‌تست به بازه کندل‌های عمومی محدود و اندیکاتور ثابت است؛ performance validation کافی نیست.
-- UI تاریخچه/log در v1.0.0 تا reload session-limited است؛ Paper/watchlist در localStorage است.
-- شبکهٔ sandbox developer تنها برخی hostهای خروجی را اجازه می‌دهد؛ API live از محیط اجرای فعلی end-to-end قابل تضمین نیست.
-- APK روی گوشی یا emulator فیزیکی نصب/اجرا نشده است؛ خود امضای فایل و manifest اعتبارسنجی شدند.
-- فایل‌های Flutter/Dart prototype قبلی در سورس نگه داشته شده‌اند اما APK تحویلی آن کد را اجرا نمی‌کند.
+## محدودیت‌ها و موارد تأییدنشده
+- هیچ endpoint عمومی کندل futures در مستندات بررسی‌شده تأیید نشده؛ Futures scanner وضعیت، قیمت، حجم و funding را نشان می‌دهد ولی سیگنال کندلی Futures صادر نمی‌کند.
+- سیگنال‌ها اندیکاتوری پژوهشی‌اند؛ امتیاز آن‌ها احتمال برد نیست.
+- Paper Trading فقط Spot-long را به‌عنوان simulator می‌پذیرد؛ فروش استقراضی روی Spot مسدود است. simulator محلی است و قیمت/لغزش/کارمزد زنده را تضمین نمی‌کند.
+- بک‌تست فقط تاریخچهٔ محدود endpoint عمومی را می‌سنجد؛ OOS ثابت 30% زمانی جایگزین اعتبارسنجی طولانی، walk-forward مستقل یا تضمین سود نیست.
+- تاریخچه در localStorage هر دستگاه است؛ پاک‌کردن دادهٔ مرورگر/برنامه آن را حذف می‌کند و فضای ذخیره محدود است.
+- APK با کلید ارزیابی محلی امضا می‌شود، نه کلید production/Play Store. نصب یا اجرای دستگاهی/Emulator در محیط توسعه انجام نشده است.
+- در این نسخه `npm run build:ui` و 25 تست Node پاس شده‌اند؛ APK با SDK ساخته، امضای v1/v2/v3 و manifest بررسی شده است. Flutter/Dart، zipalign، adb و Emulator در محیط حاضر نیستند؛ نصب/اجرای گوشی تأیید نشده است.
+- GitHub release asset upload ممکن است بسته به دسترسی endpoint `uploads.github.com` محدود باشد؛ وجود صفحهٔ release به‌تنهایی اثبات پیوست asset نیست.
